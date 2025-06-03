@@ -3,7 +3,15 @@ package gr.aueb.cf.teacherApp.dto;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class TeacherInsertDTO {
     @NotNull(message = "Το όνομα δεν μπορεί να είναι κενό")
     @Size(min=2, message = "Το όνομα πρέπει να έχει πάνω από 2 χαρακτήρες")
