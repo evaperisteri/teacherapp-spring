@@ -51,9 +51,9 @@ public class TeacherController {
             LOGGER.info("Teacher with id={} inserted", savedTeacher.getId());
             TeacherReadOnlyDTO teacherReadOnlyDTO = mapper.mapToTeacherReadOnlyDTO(savedTeacher);
             redirectAttributes.addFlashAttribute("teacher", mapper.mapToTeacherReadOnlyDTO(savedTeacher));
-            return "redirect:/school/success";
+            return "redirect:/school/success";  //prg pattern -we must redirect after POST
         } catch (EntityAlreadyExistsException | EntityInvalidArgumentException e){
-            LOGGER.error("Teacher with vat{} not inserted", teacherInsertDTO.getVat(), e);
+            LOGGER.error("Teacher with vat={} not inserted", teacherInsertDTO.getVat(), e);
             model.addAttribute("regions", regionService.findAllRegions()); //repopulate
             model.addAttribute("errorMessage", e.getMessage());
             return"teacher-form";
