@@ -17,19 +17,13 @@ public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-//    @Autowired
-//    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
-//        this.userRepository = userRepository;
-//        this.passwordEncoder = passwordEncoder;
-//    }
-
     @Transactional(rollbackOn = Exception.class)
     public User saveUser(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword())); //encrypt password
+        user.setPassword(passwordEncoder.encode(user.getPassword()));   // Encrypt password
         return userRepository.save(user);
     }
 
-    public Optional<User> findByUsername(String username){
+    public Optional<User> findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
 }

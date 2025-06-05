@@ -8,15 +8,15 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class RegionService implements IRegionService{
 
     private final RegionRepository regionRepository;
     //εναλλακτικά του @RequiredArgsConstructor (από το lombok) μπαίνει ο παρακάτω constructor με  @Autowired
-//    @Autowired
-//    public RegionService(RegionRepository regionRepository) {
-//        this.regionRepository = regionRepository;
-//    }
+    @Autowired
+    public RegionService(RegionRepository regionRepository) {
+        this.regionRepository = regionRepository;
+    }
 
     @Override
     public List<Region> findAllRegions() {

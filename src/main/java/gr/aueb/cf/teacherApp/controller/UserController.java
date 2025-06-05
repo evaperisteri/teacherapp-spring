@@ -36,7 +36,7 @@ public class UserController {
     public String insertUser(@Valid @ModelAttribute("userInsertDTO") UserInsertDTO userInsertDTO,
                              BindingResult bindingResult,
                              Model model,
-                             RedirectAttributes redirectAttributes){
+                             RedirectAttributes attrs){
 
         if(bindingResult.hasErrors()){
             return "user-form";
